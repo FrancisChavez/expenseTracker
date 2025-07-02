@@ -157,6 +157,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const userFilter = document.getElementById('user-filter');
         const refreshBtn = document.getElementById('refresh-btn');
         const exportBtn = document.getElementById('export-btn');
+        const importBtn = document.getElementById('import-btn');
+        const importFile = document.getElementById('import-file');
 
         // Edit Modal Elements
         const editModal = document.getElementById('edit-modal');
@@ -429,6 +431,72 @@ document.addEventListener('DOMContentLoaded', () => {
                 exportToCSV();
             }
         });
+
+        // Import button event
+        importBtn.addEventListener('click', () => {
+            importFile.value = '';
+            importFile.click();
+        });
+
+        // Handle file selection
+        importFile.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            if (!confirm('Are you sure you want to import this CSV file? This will overwrite all current expenses.')) return;
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const csv = event.target.result;
+                const expenses = parseCSV(csv);
+                if (expenses.length === 0) {
+                    alert('No valid expenses found in CSV.');
+                    return;
+                }
+                fetch('/api/import', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ expenses })
+                })
+                .then(res => {
+                    if (!res.ok) throw new Error('Import failed');
+                    return res.json();
+                })
+                .then(() => {
+                    alert('Import successful!');
+                    fetchExpenses();
+                })
+                .catch(() => alert('Import failed.'));
+            };
+            reader.readAsText(file);
+        });
+
+        // CSV parser for import
+        function parseCSV(csv) {
+            const lines = csv.split(/\r?\n/).filter(Boolean);
+            if (lines.length < 2) return [];
+            const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+            const result = [];
+            for (let i = 1; i < lines.length; i++) {
+                const row = lines[i].match(/("[^"]*"|[^,]+)/g);
+                if (!row || row.length < 4) continue;
+                const obj = {};
+                headers.forEach((h, idx) => {
+                    let val = row[idx] || '';
+                    if (val.startsWith('"') && val.endsWith('"')) val = val.slice(1, -1).replace(/""/g, '"');
+                    obj[h] = val;
+                });
+                // Normalize fields for backend
+                result.push({
+                    id: obj['ID'] || obj['id'] || Date.now() + '-' + i,
+                    description: obj['Description'] || obj['description'] || '',
+                    amount: obj['Amount (PHP)'] || obj['amount'] || '',
+                    source: obj['Source'] || obj['source'] || '',
+                    createdAt: obj['Created At'] || obj['Date Added'] || new Date().toISOString(),
+                    userDisplay: obj['User'] || obj['userDisplay'] || 'Unknown',
+                    user: obj['user'] || ''
+                });
+            }
+            return result;
+        }
 
         // Function to handle date header click for sorting
         const handleDateHeaderClick = () => {

@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -121,6 +120,20 @@ app.put('/api/expenses/:id', async (req, res) => {
     } catch (err) {
         console.error('Error updating expense:', err);
         res.status(500).send('Error updating expense.');
+    }
+});
+
+app.post('/api/import', async (req, res) => {
+    const { expenses } = req.body;
+    if (!Array.isArray(expenses) || expenses.length === 0) {
+        return res.status(400).json({ error: 'No expenses provided.' });
+    }
+    try {
+        await fs.writeFile(EXPENSES_FILE, JSON.stringify(expenses, null, 2));
+        res.status(200).json({ message: 'Import successful.' });
+    } catch (err) {
+        console.error('Error importing expenses:', err);
+        res.status(500).json({ error: 'Failed to import expenses.' });
     }
 });
 
