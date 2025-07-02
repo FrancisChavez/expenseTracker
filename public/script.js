@@ -528,37 +528,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             // Define CSV headers
-            const headers = ['ID', 'Description', 'Amount (PHP)', 'Source', 'Date Added', 'User', 'Created At'];
-            
+            const headers = ['ID', 'Description', 'Amount (PHP)', 'Source', 'User', 'Created At'];
+
             // Convert expenses to CSV rows
             const csvRows = [headers.join(',')];
-            
+
             allExpenses.forEach(expense => {
                 const row = [
-                    expense.id || '',
-                    `"${(expense.description || '').replace(/"/g, '""')}"`, // Escape quotes in description
-                    expense.amount || '',
-                    `"${(expense.source || '').replace(/"/g, '""')}"`, // Escape quotes in source
-                    expense.createdAt ? new Date(expense.createdAt).toLocaleString() : '',
-                    expense.userDisplay || '',
-                    expense.createdAt || ''
+                    `"${expense.id || ''}"`,
+                    `"${(expense.description || '').replace(/"/g, '""')}"`,
+                    `"${expense.amount || ''}"`,
+                    `"${(expense.source || '').replace(/"/g, '""')}"`,
+                    `"${expense.userDisplay || ''}"`,
+                    `"${expense.createdAt || ''}"`
                 ];
                 csvRows.push(row.join(','));
             });
 
             // Create CSV content
             const csvContent = csvRows.join('\n');
-            
+
             // Create and download the file
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement('a');
-            
+
             // Create filename with current date
             const now = new Date();
             const dateStr = now.toISOString().split('T')[0]; // YYYY-MM-DD format
             const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-'); // HH-MM-SS format
             const filename = `expenses_${dateStr}_${timeStr}.csv`;
-            
+
             if (link.download !== undefined) {
                 const url = URL.createObjectURL(blob);
                 link.setAttribute('href', url);

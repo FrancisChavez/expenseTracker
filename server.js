@@ -129,7 +129,34 @@ app.post('/api/import', async (req, res) => {
         return res.status(400).json({ error: 'No expenses provided.' });
     }
     try {
-        await fs.writeFile(EXPENSES_FILE, JSON.stringify(expenses, null, 2));
+        // Normalize each expense
+        const normalized = expenses.map((exp, idx) => {
+            let user = exp.user;
+            let userDisplay = exp.userDisplay;
+            // Map userDisplay to user if only display is present
+            if (!user && userDisplay) {
+                if (userDisplay === 'Franz') user = 'francis';
+                else if (userDisplay === 'Mhai') user = 'Mhai017';
+            }
+            // Map user to userDisplay if only user is present
+            if (!userDisplay && user) {
+                if (user === 'francis') userDisplay = 'Franz';
+                else if (user === 'Mhai017') userDisplay = 'Mhai';
+            }
+            // Fallbacks
+            if (!user) user = '';
+            if (!userDisplay) userDisplay = 'Unknown';
+            return {
+                id: exp.id || Date.now().toString() + '-' + idx,
+                description: exp.description || '',
+                amount: exp.amount || '',
+                source: exp.source || '',
+                createdAt: exp.createdAt || new Date().toISOString(),
+                user,
+                userDisplay
+            };
+        });
+        await fs.writeFile(EXPENSES_FILE, JSON.stringify(normalized, null, 2));
         res.status(200).json({ message: 'Import successful.' });
     } catch (err) {
         console.error('Error importing expenses:', err);
