@@ -6,23 +6,19 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - type: bind
-        source: ./expenses.json
-        target: /app/expenses.json
-        bind:
-          create_host_path: true
+      - ./expenses.json:/app/expenses.json
+      - ./data:/app/data
     environment:
       - NODE_ENV=production
       - PORT=3000
     restart: unless-stopped
-    user: "0:0"  # Run as root to avoid permission issues
     healthcheck:
       test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
       interval: 30s
-      timeout: 3s
+      timeout: 10s
       retries: 3
-      start_period: 5s
+      start_period: 40s
     labels:
       - "dockge.name=Expense Tracker"
-      - "dockge.description=Personal expense tracking application"
-      - "dockge.icon=fas fa-receipt" 
+      - "dockge.description=Secure multi-user expense tracking application"
+      - "dockge.icon=mdi-calculator" 

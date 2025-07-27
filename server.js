@@ -157,38 +157,15 @@ app.post('/api/import', async (req, res) => {
             };
         });
         
-        // Try to write with better error handling
-        try {
-            await fs.writeFile(EXPENSES_FILE, JSON.stringify(normalized, null, 2));
-            res.status(200).json({ message: 'Import successful.' });
-        } catch (writeErr) {
-            console.error('Error writing to expenses.json:', writeErr);
-            if (writeErr.code === 'EACCES') {
-                res.status(500).json({ error: 'Permission denied writing to expenses.json. Please check file permissions.' });
-            } else {
-                res.status(500).json({ error: 'Failed to write expenses data.' });
-            }
-        }
+        await fs.writeFile(EXPENSES_FILE, JSON.stringify(normalized, null, 2));
+        res.status(200).json({ message: 'Import successful.' });
     } catch (err) {
         console.error('Error importing expenses:', err);
         res.status(500).json({ error: 'Failed to import expenses.' });
     }
 });
 
-// Test endpoint to check file permissions
-app.get('/api/test-permissions', async (req, res) => {
-    try {
-        // Try to read the file
-        await fs.access(EXPENSES_FILE, fs.constants.R_OK);
-        res.json({ message: 'File is readable' });
-    } catch (err) {
-        res.status(500).json({ 
-            error: 'File permission error', 
-            code: err.code,
-            message: err.message 
-        });
-    }
-});
+
 
 app.listen(port, () => {
     console.log(`Expense tracker app listening at http://localhost:${port}`);
