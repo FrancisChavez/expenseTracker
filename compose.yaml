@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  expense-tracker:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./expenses.json:/app/expenses.json
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "dockge.name=Expense Tracker"
+      - "dockge.description=Secure multi-user expense tracking application"
+      - "dockge.icon=mdi-calculator" 
