@@ -23,13 +23,13 @@ EXPOSE 3000
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Create a non-root user for security
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nodejs -u 1001
+# Create a non-root user for security (COMMENTED OUT FOR PERMISSION FIX)
+# RUN addgroup -g 1001 -S nodejs
+# RUN adduser -S nodejs -u 1001
 
-# Change ownership of the app directory
-RUN chown -R nodejs:nodejs /app
-USER nodejs
+# Change ownership of the app directory (COMMENTED OUT FOR PERMISSION FIX)
+# RUN chown -R nodejs:nodejs /app
+# USER nodejs
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
