@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Data files (contains user data)
+expenses.json
+expenses.backup.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

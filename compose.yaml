@@ -1,0 +1,36 @@
+services:
+  expense-tracker-v2:
+    build: .
+    container_name: expense-tracker-v2
+    ports:
+      - "3002:3001"
+    volumes:
+      - /home/francis/projects/myNewOptFolder/stacks/expensetrackerprojectv2/expenses.json:/app/expenses.json
+      - expense-tracker-v2-data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - TZ=UTC
+    restart: unless-stopped
+    networks:
+      - cloudflare-net
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "dockge.name=Expense Tracker V2"
+      - "dockge.description=Secure multi-user expense tracking application"
+      - "dockge.icon=mdi-calculator"
+
+volumes:
+  expense-tracker-v2-data:
+    name: expense-tracker-v2-data
+    driver: local
+
+networks:
+  cloudflare-net:
+    external: true
+    name: cloudflare-net
