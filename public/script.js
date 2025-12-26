@@ -173,10 +173,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const expenseTableBody = document.getElementById('expense-table-body');
         const totalExpensesSpan = document.getElementById('total-expenses');
         const monthFilter = document.getElementById('month-filter');
+        const yearFilter = document.getElementById('year-filter');
         const userFilter = document.getElementById('user-filter');
         const refreshBtn = document.getElementById('refresh-btn');
         const exportBtn = document.getElementById('export-btn');
         const importBtn = document.getElementById('import-btn');
+        const restoreBtn = document.getElementById('restore-btn');
         const importFile = document.getElementById('import-file');
 
         // Edit Modal Elements
@@ -206,6 +208,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 monthFilter.appendChild(option);
             });
+        };
+
+        // Populates the year filter dropdown and sets the current year as default
+        const populateYearFilter = () => {
+            const currentYear = new Date().getFullYear();
+            // Show current year through 2030
+            for (let year = currentYear; year <= 2030; year++) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year;
+                if (year === currentYear) {
+                    option.selected = true;
+                }
+                yearFilter.appendChild(option);
+            }
         };
 
         // Populates the source options for the edit modal
@@ -290,6 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Filters the main expenses list based on UI controls and calls render
         const applyFiltersAndRender = () => {
             const selectedMonth = monthFilter.value;
+            const selectedYear = yearFilter.value;
             const selectedUser = userFilter.value;
 
             let filteredExpenses = allExpenses;
@@ -299,6 +317,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 filteredExpenses = filteredExpenses.filter(expense => {
                     // Ensure createdAt exists before trying to create a Date from it
                     return expense.createdAt && new Date(expense.createdAt).getMonth() == selectedMonth;
+                });
+            }
+
+            // Filter by year
+            if (selectedYear !== '') {
+                filteredExpenses = filteredExpenses.filter(expense => {
+                    return expense.createdAt && new Date(expense.createdAt).getFullYear() == selectedYear;
                 });
             }
 
@@ -459,6 +484,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Filter change events
         monthFilter.addEventListener('change', applyFiltersAndRender);
+        yearFilter.addEventListener('change', applyFiltersAndRender);
         userFilter.addEventListener('change', applyFiltersAndRender);
 
         // Refresh button event
@@ -483,7 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
         importFile.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (!file) return;
-            if (!confirm('Are you sure you want to import this CSV file? This will overwrite all current expenses.')) return;
             const reader = new FileReader();
             reader.onload = function(event) {
                 const csv = event.target.result;
@@ -492,6 +517,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     alert('No valid expenses found in CSV.');
                     return;
                 }
+                // Show detailed confirmation with counts
+                const currentCount = allExpenses.length;
+                const importCount = expenses.length;
+                const confirmMsg = `WARNING: This will REPLACE all your current data!\n\n` +
+                    `Current expenses: ${currentCount}\n` +
+                    `Expenses to import: ${importCount}\n\n` +
+                    `A backup will be created automatically.\n\n` +
+                    `Are you sure you want to continue?`;
+                if (!confirm(confirmMsg)) return;
+
                 fetch('/api/import', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -506,8 +541,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!res.ok) throw new Error('Import failed');
                     return res.json();
                 })
-                .then(() => {
-                    alert('Import successful!');
+                .then((data) => {
+                    let msg = `Import successful! ${data.imported} expenses imported.`;
+                    if (data.backupCreated) {
+                        msg += `\n\nBackup created with ${data.backupCount} expenses.\nYou can restore it using the Restore button.`;
+                    }
+                    alert(msg);
                     fetchExpenses();
                 })
                 .catch((err) => {
@@ -518,6 +557,46 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             reader.readAsText(file);
         });
+
+        // Restore from backup
+        const handleRestore = async () => {
+            try {
+                // First check if backup exists
+                const infoRes = await fetch('/api/backup-info');
+                if (infoRes.status === 401) {
+                    alert('Session expired. Please log in again.');
+                    showLogin();
+                    return;
+                }
+                const info = await infoRes.json();
+                if (!info.exists) {
+                    alert('No backup found. A backup is created automatically when you import a CSV.');
+                    return;
+                }
+
+                const backupDate = new Date(info.createdAt).toLocaleString();
+                const confirmMsg = `Restore from backup?\n\n` +
+                    `Backup contains: ${info.count} expenses\n` +
+                    `Backup created: ${backupDate}\n` +
+                    `Current expenses: ${allExpenses.length}\n\n` +
+                    `This will REPLACE your current data with the backup.`;
+                if (!confirm(confirmMsg)) return;
+
+                const res = await fetch('/api/restore', { method: 'POST' });
+                if (res.status === 401) {
+                    alert('Session expired. Please log in again.');
+                    showLogin();
+                    return;
+                }
+                if (!res.ok) throw new Error('Restore failed');
+                const data = await res.json();
+                alert(`Restore successful! ${data.restored} expenses restored.`);
+                fetchExpenses();
+            } catch (err) {
+                console.error('Restore error:', err);
+                alert('Restore failed.');
+            }
+        };
 
         // CSV parser for import
         function parseCSV(csv) {
@@ -624,6 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize the app
         populateMonthFilter();
+        populateYearFilter();
         populateEditSourceOptions();
         fetchExpenses();
 
@@ -637,5 +717,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (amountHeader) {
             amountHeader.addEventListener('click', handleAmountHeaderClick);
         }
+
+        // Restore button event (must be after handleRestore is defined)
+        restoreBtn.addEventListener('click', handleRestore);
     }
 });

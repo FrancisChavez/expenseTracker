@@ -6,6 +6,7 @@ const fs = require('fs').promises; // Use the promise-based API
 const crypto = require('crypto');
 
 const EXPENSES_FILE = 'expenses.json'; // Centralize the filename
+const BACKUP_FILE = 'expenses.backup.json'; // Backup file for import safety
 
 // Valid credentials - move to backend for security
 const VALID_CREDENTIALS = [
@@ -205,6 +206,25 @@ app.post('/api/import', requireAuth, async (req, res) => {
         return res.status(400).json({ error: 'No expenses provided.' });
     }
     try {
+        // Create backup of current data before overwriting
+        let backupCreated = false;
+        let backupCount = 0;
+        try {
+            const currentData = await fs.readFile(EXPENSES_FILE, 'utf8');
+            const currentExpenses = JSON.parse(currentData);
+            backupCount = currentExpenses.length;
+            if (backupCount > 0) {
+                await fs.writeFile(BACKUP_FILE, currentData);
+                backupCreated = true;
+                console.log(`Backup created: ${backupCount} expenses saved to ${BACKUP_FILE}`);
+            }
+        } catch (err) {
+            if (err.code !== 'ENOENT') {
+                console.error('Error creating backup:', err);
+            }
+            // Continue with import even if backup fails (no existing data)
+        }
+
         // Normalize each expense
         const normalized = expenses.map((exp, idx) => {
             let user = exp.user;
@@ -232,16 +252,74 @@ app.post('/api/import', requireAuth, async (req, res) => {
                 userDisplay
             };
         });
-        
+
         await fs.writeFile(EXPENSES_FILE, JSON.stringify(normalized, null, 2));
-        res.status(200).json({ message: 'Import successful.' });
+        res.status(200).json({
+            message: 'Import successful.',
+            imported: normalized.length,
+            backupCreated,
+            backupCount
+        });
     } catch (err) {
         console.error('Error importing expenses:', err);
         res.status(500).json({ error: 'Failed to import expenses.' });
     }
 });
 
+// Get backup info
+app.get('/api/backup-info', requireAuth, async (req, res) => {
+    try {
+        const stats = await fs.stat(BACKUP_FILE);
+        const data = await fs.readFile(BACKUP_FILE, 'utf8');
+        const expenses = JSON.parse(data);
+        res.json({
+            exists: true,
+            count: expenses.length,
+            createdAt: stats.mtime.toISOString()
+        });
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            res.json({ exists: false });
+        } else {
+            console.error('Error reading backup info:', err);
+            res.status(500).json({ error: 'Failed to read backup info.' });
+        }
+    }
+});
 
+// Restore from backup
+app.post('/api/restore', requireAuth, async (req, res) => {
+    try {
+        // Check if backup exists
+        const backupData = await fs.readFile(BACKUP_FILE, 'utf8');
+        const backupExpenses = JSON.parse(backupData);
+
+        // Get current data count for response
+        let currentCount = 0;
+        try {
+            const currentData = await fs.readFile(EXPENSES_FILE, 'utf8');
+            currentCount = JSON.parse(currentData).length;
+        } catch (err) {
+            // No current data, that's fine
+        }
+
+        // Restore backup to main file
+        await fs.writeFile(EXPENSES_FILE, backupData);
+
+        res.json({
+            message: 'Restore successful.',
+            restored: backupExpenses.length,
+            replaced: currentCount
+        });
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            res.status(404).json({ error: 'No backup file found.' });
+        } else {
+            console.error('Error restoring backup:', err);
+            res.status(500).json({ error: 'Failed to restore backup.' });
+        }
+    }
+});
 
 app.listen(port, () => {
     console.log(`Expense tracker app listening at http://localhost:${port}`);
