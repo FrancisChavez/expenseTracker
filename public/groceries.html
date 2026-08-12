@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <title>Groceries/Food Budgeting</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="groceries.css">
 </head>
 <body>
     <!-- Login Form (hidden until session check completes) -->
@@ -30,12 +31,12 @@
         </div>
     </div>
 
-    <!-- Expense Tracker App (Hidden initially) -->
+    <!-- Groceries/Food Budgeting App (Hidden initially) -->
     <div id="app-container" class="app-container" style="display: none;">
         <div class="header-container">
             <div class="title-section">
-                <h1>Expense Tracker</h1>
-                <a href="groceries.html" class="nav-link">Groceries/Food Budgeting &rarr;</a>
+                <h1>Groceries/Food Budgeting</h1>
+                <a href="index.html" class="back-link">&larr; Back to Expense Tracker</a>
             </div>
             <div id="total-expenses-container">
                 <h2>Total Expenses: <span id="total-expenses">0.00</span> PHP</h2>
@@ -83,7 +84,7 @@
             </select>
             <button type="submit">Add Expense</button>
         </form>
-        <h2>Expenses</h2>
+        <h2>Groceries/Food Expenses</h2>
         <table id="expense-table">
             <thead>
                 <tr>
@@ -124,6 +125,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="groceries.js"></script>
 </body>
 </html>

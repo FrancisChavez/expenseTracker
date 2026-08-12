@@ -6,6 +6,7 @@ services:
       - "3002:3001"
     volumes:
       - /home/francis/projects/myNewOptFolder/stacks/expensetrackerprojectv2/expenses.json:/app/expenses.json
+      - /home/francis/projects/myNewOptFolder/stacks/expensetrackerprojectv2/groceries.json:/app/groceries.json
       - expense-tracker-v2-data:/app/data
     environment:
       - NODE_ENV=production

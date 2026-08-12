@@ -1,0 +1,218 @@
+/* Light Pink Theme Override for Groceries/Food Budgeting */
+
+body {
+    background-color: #ffe4e6 !important; /* Light pink background */
+    color: #4a4a4a !important; /* Dark gray text for readability */
+}
+
+.login-container {
+    background-color: #ffe4e6 !important;
+}
+
+.login-form {
+    background-color: #fff0f3 !important; /* Slightly lighter pink */
+    border: 1px solid #f9a8b6 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.login-form h1 {
+    color: #4a4a4a !important;
+}
+
+.login-form label {
+    color: #4a4a4a !important;
+}
+
+.login-form input {
+    background-color: #ffffff !important;
+    border: 1px solid #f9a8b6 !important;
+    color: #4a4a4a !important;
+}
+
+.login-form input:focus {
+    border-color: #e91e63 !important;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.3) !important;
+}
+
+.login-error {
+    color: #c62828 !important;
+}
+
+.show-password-label {
+    color: #4a4a4a !important;
+}
+
+.header-container {
+    background-color: transparent !important;
+}
+
+.title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.back-link {
+    color: #c2185b !important;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    color: #880e4f !important;
+}
+
+#total-expenses-container h2 {
+    color: #4a4a4a !important;
+}
+
+#total-expenses-container #total-expenses {
+    color: #c62828 !important;
+}
+
+form {
+    background-color: #fff0f3 !important;
+    border: 1px solid #f9a8b6 !important;
+}
+
+.filter-container {
+    background-color: #fff0f3 !important;
+    border: 1px solid #f9a8b6 !important;
+}
+
+.filter-container label {
+    color: #4a4a4a !important;
+}
+
+input,
+select {
+    background-color: #ffffff !important;
+    border: 1px solid #f9a8b6 !important;
+    color: #4a4a4a !important;
+}
+
+label {
+    color: #4a4a4a !important;
+}
+
+h2 {
+    color: #4a4a4a !important;
+}
+
+table {
+    background-color: #ffffff !important;
+}
+
+th {
+    background-color: #f8bbd9 !important; /* Pink header */
+    color: #4a4a4a !important;
+}
+
+th.sortable:hover,
+th.sortable-amount:hover {
+    background-color: #f48fb1 !important;
+}
+
+td {
+    border: 1px solid #f9a8b6 !important;
+    color: #4a4a4a !important;
+}
+
+th {
+    border: 1px solid #f9a8b6 !important;
+}
+
+tr:nth-child(even) {
+    background-color: #fff0f3 !important;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff !important;
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: #fff0f3 !important;
+    border: 1px solid #f9a8b6 !important;
+    color: #4a4a4a !important;
+}
+
+.modal-content h2 {
+    color: #4a4a4a !important;
+}
+
+.close-button {
+    color: #888 !important;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #4a4a4a !important;
+}
+
+/* Buttons - keep consistent colors */
+button {
+    background-color: #e91e63 !important; /* Pink accent */
+}
+
+button:hover {
+    background-color: #c2185b !important;
+}
+
+.refresh-btn {
+    background-color: #2196F3 !important;
+}
+
+.refresh-btn:hover {
+    background-color: #0b7dda !important;
+}
+
+.export-btn {
+    background-color: #4CAF50 !important;
+}
+
+.export-btn:hover {
+    background-color: #45a049 !important;
+}
+
+.import-btn {
+    background-color: #ff9800 !important;
+}
+
+.import-btn:hover {
+    background-color: #e68900 !important;
+}
+
+.restore-btn {
+    background-color: #9c27b0 !important;
+}
+
+.restore-btn:hover {
+    background-color: #7b1fa2 !important;
+}
+
+.logout-btn {
+    background-color: #f44336 !important;
+}
+
+.logout-btn:hover {
+    background-color: #da190b !important;
+}
+
+.delete-btn {
+    background-color: #f44336 !important;
+}
+
+.delete-btn:hover {
+    background-color: #da190b !important;
+}
+
+.edit-btn {
+    background-color: #2196F3 !important;
+}
+
+.edit-btn:hover {
+    background-color: #0b7dda !important;
+}

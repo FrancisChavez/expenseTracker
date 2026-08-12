@@ -236,19 +236,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const fetchExpenses = async () => {
             try {
-                const response = await fetch('/api/expenses');
+                const response = await fetch('/api/groceries');
                 if (response.status === 401) {
                     alert('Session expired. Please log in again.');
                     showLogin();
                     return;
                 }
                 if (!response.ok) {
-                    throw new Error('Failed to fetch expenses');
+                    throw new Error('Failed to fetch groceries');
                 }
                 allExpenses = await response.json();
                 applyFiltersAndRender(); // Apply current filter and render
             } catch (error) {
-                console.error('Error fetching expenses:', error);
+                console.error('Error fetching groceries:', error);
             }
         };
 
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const row = expenseTableBody.insertRow();
                 const cell = row.insertCell();
                 cell.colSpan = 6; // Updated to include User column
-                cell.textContent = 'No expenses recorded for the selected month.';
+                cell.textContent = 'No groceries/food expenses recorded for the selected month.';
                 cell.style.textAlign = 'center';
             } else {
                 expensesToRender.forEach(expense => {
@@ -368,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const response = await fetch(`/api/expenses/${id}`, {
+                const response = await fetch(`/api/groceries/${id}`, {
                     method: 'DELETE',
                 });
 
@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('/api/expenses', {
+                const response = await fetch('/api/groceries', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch(`/api/expenses/${id}`, {
+                const response = await fetch(`/api/groceries/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -497,7 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Export button event
         exportBtn.addEventListener('click', () => {
-            if (confirm('Are you sure you want to export all expenses to CSV? This will include all expense data.')) {
+            if (confirm('Are you sure you want to export all groceries/food expenses to CSV? This will include all expense data.')) {
                 exportToCSV();
             }
         });
@@ -523,14 +523,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Show detailed confirmation with counts
                 const currentCount = allExpenses.length;
                 const importCount = expenses.length;
-                const confirmMsg = `WARNING: This will REPLACE all your current data!\n\n` +
+                const confirmMsg = `WARNING: This will REPLACE all your current groceries data!\n\n` +
                     `Current expenses: ${currentCount}\n` +
                     `Expenses to import: ${importCount}\n\n` +
                     `A backup will be created automatically.\n\n` +
                     `Are you sure you want to continue?`;
                 if (!confirm(confirmMsg)) return;
 
-                fetch('/api/import', {
+                fetch('/api/groceries/import', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ expenses })
@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const handleRestore = async () => {
             try {
                 // First check if backup exists
-                const infoRes = await fetch('/api/backup-info');
+                const infoRes = await fetch('/api/groceries/backup-info');
                 if (infoRes.status === 401) {
                     alert('Session expired. Please log in again.');
                     showLogin();
@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `This will REPLACE your current data with the backup.`;
                 if (!confirm(confirmMsg)) return;
 
-                const res = await fetch('/api/restore', { method: 'POST' });
+                const res = await fetch('/api/groceries/restore', { method: 'POST' });
                 if (res.status === 401) {
                     alert('Session expired. Please log in again.');
                     showLogin();
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const now = new Date();
             const dateStr = now.toISOString().split('T')[0]; // YYYY-MM-DD format
             const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '-'); // HH-MM-SS format
-            const filename = `expenses_${dateStr}_${timeStr}.csv`;
+            const filename = `groceries_${dateStr}_${timeStr}.csv`;
 
             if (link.download !== undefined) {
                 const url = URL.createObjectURL(blob);

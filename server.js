@@ -7,6 +7,8 @@ const crypto = require('crypto');
 
 const EXPENSES_FILE = 'expenses.json'; // Centralize the filename
 const BACKUP_FILE = 'expenses.backup.json'; // Backup file for import safety
+const GROCERIES_FILE = 'groceries.json'; // Groceries/food budgeting data
+const GROCERIES_BACKUP_FILE = 'groceries.backup.json'; // Backup file for groceries
 
 // Valid credentials - move to backend for security
 const VALID_CREDENTIALS = [
@@ -316,6 +318,234 @@ app.post('/api/restore', requireAuth, async (req, res) => {
             res.status(404).json({ error: 'No backup file found.' });
         } else {
             console.error('Error restoring backup:', err);
+            res.status(500).json({ error: 'Failed to restore backup.' });
+        }
+    }
+});
+
+// ============================================
+// GROCERIES/FOOD BUDGETING API ENDPOINTS
+// ============================================
+
+app.get('/api/groceries', requireAuth, async (req, res) => {
+    try {
+        let data = await fs.readFile(GROCERIES_FILE, 'utf8');
+        let groceries = JSON.parse(data);
+        let changed = false;
+
+        // Assign IDs to old records if they don't have one and add user info for old records
+        groceries = groceries.map(item => {
+            if (!item.id) {
+                item.id = `migrated-${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
+                changed = true;
+            }
+            if (!item.userDisplay) {
+                item.userDisplay = 'Unknown';
+                changed = true;
+            }
+            return item;
+        });
+
+        if (changed) {
+            await fs.writeFile(GROCERIES_FILE, JSON.stringify(groceries, null, 2));
+        }
+        res.send(JSON.stringify(groceries));
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            res.send('[]');
+        } else {
+            console.error('Error reading groceries data:', err);
+            res.status(500).send('Error reading groceries data.');
+        }
+    }
+});
+
+app.post('/api/groceries', requireAuth, async (req, res) => {
+    const newItem = req.body;
+    newItem.id = Date.now().toString();
+    newItem.createdAt = new Date().toISOString();
+
+    // Map username to display name
+    let displayName = 'Unknown';
+    if (newItem.user === 'francis') {
+        displayName = 'Franz';
+    } else if (newItem.user === 'Mhai017') {
+        displayName = 'Mhai';
+    }
+    newItem.userDisplay = displayName;
+
+    try {
+        let groceries = [];
+        try {
+            const data = await fs.readFile(GROCERIES_FILE, 'utf8');
+            groceries = JSON.parse(data);
+        } catch (err) {
+            if (err.code !== 'ENOENT') throw err;
+        }
+        groceries.push(newItem);
+        await fs.writeFile(GROCERIES_FILE, JSON.stringify(groceries, null, 2));
+        res.status(201).send(newItem);
+    } catch (err) {
+        console.error('Error saving grocery item:', err);
+        res.status(500).send('Error saving grocery item.');
+    }
+});
+
+app.delete('/api/groceries/:id', requireAuth, async (req, res) => {
+    const { id } = req.params;
+    try {
+        const data = await fs.readFile(GROCERIES_FILE, 'utf8');
+        let groceries = JSON.parse(data);
+
+        const initialLength = groceries.length;
+        groceries = groceries.filter(item => item.id !== id);
+
+        if (groceries.length === initialLength) {
+            return res.status(404).send('Grocery item not found.');
+        }
+
+        await fs.writeFile(GROCERIES_FILE, JSON.stringify(groceries, null, 2));
+        res.status(200).send({ message: 'Grocery item deleted successfully.' });
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            return res.status(404).send('Grocery item not found.');
+        }
+        console.error('Error deleting grocery item:', err);
+        res.status(500).send('Error deleting grocery item.');
+    }
+});
+
+app.put('/api/groceries/:id', requireAuth, async (req, res) => {
+    const { id } = req.params;
+    const updatedData = req.body;
+
+    try {
+        const data = await fs.readFile(GROCERIES_FILE, 'utf8');
+        let groceries = JSON.parse(data);
+
+        const itemIndex = groceries.findIndex(item => item.id === id);
+
+        if (itemIndex === -1) {
+            return res.status(404).send('Grocery item not found.');
+        }
+
+        groceries[itemIndex] = { ...groceries[itemIndex], ...updatedData };
+
+        await fs.writeFile(GROCERIES_FILE, JSON.stringify(groceries, null, 2));
+        res.status(200).send(groceries[itemIndex]);
+    } catch (err) {
+        console.error('Error updating grocery item:', err);
+        res.status(500).send('Error updating grocery item.');
+    }
+});
+
+app.post('/api/groceries/import', requireAuth, async (req, res) => {
+    const { expenses } = req.body;
+    if (!Array.isArray(expenses) || expenses.length === 0) {
+        return res.status(400).json({ error: 'No items provided.' });
+    }
+    try {
+        // Create backup of current data before overwriting
+        let backupCreated = false;
+        let backupCount = 0;
+        try {
+            const currentData = await fs.readFile(GROCERIES_FILE, 'utf8');
+            const currentItems = JSON.parse(currentData);
+            backupCount = currentItems.length;
+            if (backupCount > 0) {
+                await fs.writeFile(GROCERIES_BACKUP_FILE, currentData);
+                backupCreated = true;
+                console.log(`Groceries backup created: ${backupCount} items saved to ${GROCERIES_BACKUP_FILE}`);
+            }
+        } catch (err) {
+            if (err.code !== 'ENOENT') {
+                console.error('Error creating groceries backup:', err);
+            }
+        }
+
+        // Normalize each item
+        const normalized = expenses.map((exp, idx) => {
+            let user = exp.user;
+            let userDisplay = exp.userDisplay;
+            if (!user && userDisplay) {
+                if (userDisplay === 'Franz') user = 'francis';
+                else if (userDisplay === 'Mhai') user = 'Mhai017';
+            }
+            if (!userDisplay && user) {
+                if (user === 'francis') userDisplay = 'Franz';
+                else if (user === 'Mhai017') userDisplay = 'Mhai';
+            }
+            if (!user) user = '';
+            if (!userDisplay) userDisplay = 'Unknown';
+            return {
+                id: exp.id || Date.now().toString() + '-' + idx,
+                description: exp.description || '',
+                amount: exp.amount || '',
+                source: exp.source || '',
+                createdAt: exp.createdAt || new Date().toISOString(),
+                user,
+                userDisplay
+            };
+        });
+
+        await fs.writeFile(GROCERIES_FILE, JSON.stringify(normalized, null, 2));
+        res.status(200).json({
+            message: 'Import successful.',
+            imported: normalized.length,
+            backupCreated,
+            backupCount
+        });
+    } catch (err) {
+        console.error('Error importing groceries:', err);
+        res.status(500).json({ error: 'Failed to import groceries.' });
+    }
+});
+
+app.get('/api/groceries/backup-info', requireAuth, async (req, res) => {
+    try {
+        const stats = await fs.stat(GROCERIES_BACKUP_FILE);
+        const data = await fs.readFile(GROCERIES_BACKUP_FILE, 'utf8');
+        const items = JSON.parse(data);
+        res.json({
+            exists: true,
+            count: items.length,
+            createdAt: stats.mtime.toISOString()
+        });
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            res.json({ exists: false });
+        } else {
+            console.error('Error reading groceries backup info:', err);
+            res.status(500).json({ error: 'Failed to read backup info.' });
+        }
+    }
+});
+
+app.post('/api/groceries/restore', requireAuth, async (req, res) => {
+    try {
+        const backupData = await fs.readFile(GROCERIES_BACKUP_FILE, 'utf8');
+        const backupItems = JSON.parse(backupData);
+
+        let currentCount = 0;
+        try {
+            const currentData = await fs.readFile(GROCERIES_FILE, 'utf8');
+            currentCount = JSON.parse(currentData).length;
+        } catch (err) {
+            // No current data, that's fine
+        }
+
+        await fs.writeFile(GROCERIES_FILE, backupData);
+
+        res.json({
+            message: 'Restore successful.',
+            restored: backupItems.length,
+            replaced: currentCount
+        });
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            res.status(404).json({ error: 'No backup file found.' });
+        } else {
+            console.error('Error restoring groceries backup:', err);
             res.status(500).json({ error: 'Failed to restore backup.' });
         }
     }

@@ -399,3 +399,23 @@ tr:nth-child(even) {
 .app-container {
     display: block;
 }
+
+.title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-link,
+.back-link {
+    color: #64b5f6;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.back-link:hover {
+    text-decoration: underline;
+    color: #90caf9;
+}

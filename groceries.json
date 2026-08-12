@@ -1,0 +1,1118 @@
+[
+  {
+    "description": "mhai test 02",
+    "amount": "3",
+    "source": "E-wallet GCASH Mhai",
+    "user": "francis",
+    "id": "1768317156830",
+    "createdAt": "2026-01-13T15:12:36.831Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Grocery (Landmark)",
+    "amount": "5951",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770081292738",
+    "createdAt": "2026-02-03T01:14:52.738Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Grocery (Savemore)",
+    "amount": "868",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770081331744",
+    "createdAt": "2026-02-03T01:15:31.744Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Grab, jeep and tricy",
+    "amount": "214",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770081366565",
+    "createdAt": "2026-02-03T01:16:06.565Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "238",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770081405022",
+    "createdAt": "2026-02-03T01:16:45.022Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Shoppe - Money binder",
+    "amount": "160",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770081427408",
+    "createdAt": "2026-02-03T01:17:07.408Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Drainage cleanup fee",
+    "amount": "50",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770113890707",
+    "createdAt": "2026-02-03T10:18:10.707Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "208",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770113899413",
+    "createdAt": "2026-02-03T10:18:19.413Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Buko",
+    "amount": "135",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770185053624",
+    "createdAt": "2026-02-04T06:04:13.624Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Coke, nestle cream & coco mama",
+    "amount": "240",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770185070608",
+    "createdAt": "2026-02-04T06:04:30.608Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "195",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770597510089",
+    "createdAt": "2026-02-09T00:38:30.089Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ice cream",
+    "amount": "80",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770597523261",
+    "createdAt": "2026-02-09T00:38:43.261Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Eggs and tomato",
+    "amount": "109",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770597538601",
+    "createdAt": "2026-02-09T00:38:58.601Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Palengke",
+    "amount": "426",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770709349215",
+    "createdAt": "2026-02-10T07:42:29.215Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Water",
+    "amount": "90",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770790028703",
+    "createdAt": "2026-02-11T06:07:08.703Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Groceries",
+    "amount": "3293",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1770972152293",
+    "createdAt": "2026-02-13T08:42:32.293Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ulam",
+    "amount": "70",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1771258980451",
+    "createdAt": "2026-02-16T16:23:00.451Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "222",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1771259000011",
+    "createdAt": "2026-02-16T16:23:20.011Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Fish",
+    "amount": "387",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1771586910088",
+    "createdAt": "2026-02-20T11:28:30.088Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Food bazaar",
+    "amount": "210",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1771586927427",
+    "createdAt": "2026-02-20T11:28:47.427Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Laundry",
+    "amount": "168",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1771586954424",
+    "createdAt": "2026-02-20T11:29:14.424Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Binalot sa Dahon",
+    "amount": "516",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1771586981301",
+    "createdAt": "2026-02-20T11:29:41.301Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Landmark",
+    "amount": "4008",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772459168145",
+    "createdAt": "2026-03-02T13:46:08.145Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Savemore - Salmon",
+    "amount": "777",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772459194283",
+    "createdAt": "2026-03-02T13:46:34.283Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Grab",
+    "amount": "130",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772459204668",
+    "createdAt": "2026-03-02T13:46:44.668Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ulam",
+    "amount": "100",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772459218151",
+    "createdAt": "2026-03-02T13:46:58.151Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "163",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772459235779",
+    "createdAt": "2026-03-02T13:47:15.779Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Bread",
+    "amount": "82",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772459322932",
+    "createdAt": "2026-03-02T13:48:42.932Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Payment for Feb food",
+    "amount": "1500",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772460262619",
+    "createdAt": "2026-03-02T14:04:22.619Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ulam & pamasahe gym for 2 days",
+    "amount": "378",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772767322114",
+    "createdAt": "2026-03-06T03:22:02.114Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Tubig",
+    "amount": "90",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772767336993",
+    "createdAt": "2026-03-06T03:22:16.993Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Maintenance drainage + 100ph advance",
+    "amount": "300",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1772767363333",
+    "createdAt": "2026-03-06T03:22:43.333Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Tricy gym",
+    "amount": "54",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773118649843",
+    "createdAt": "2026-03-10T04:57:29.843Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Pomelo",
+    "amount": "160",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773118659379",
+    "createdAt": "2026-03-10T04:57:39.379Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ulam",
+    "amount": "160",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773118665754",
+    "createdAt": "2026-03-10T04:57:45.754Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "193",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773217984976",
+    "createdAt": "2026-03-11T08:33:04.976Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Binalot",
+    "amount": "330",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773217992528",
+    "createdAt": "2026-03-11T08:33:12.528Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Eggs & coffee",
+    "amount": "75",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773273104416",
+    "createdAt": "2026-03-11T23:51:44.416Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay/Fish",
+    "amount": "338",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773621819277",
+    "createdAt": "2026-03-16T00:43:39.277Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Eggs",
+    "amount": "110",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773621827017",
+    "createdAt": "2026-03-16T00:43:47.017Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Pizza",
+    "amount": "510",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773621860264",
+    "createdAt": "2026-03-16T00:44:20.264Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Cola & ice cream",
+    "amount": "160",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773621884405",
+    "createdAt": "2026-03-16T00:44:44.405Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Cordon blue",
+    "amount": "145",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773621895116",
+    "createdAt": "2026-03-16T00:44:55.116Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Trcy gym for 2 days",
+    "amount": "108",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773621986350",
+    "createdAt": "2026-03-16T00:46:26.350Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ulam",
+    "amount": "100",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773621993784",
+    "createdAt": "2026-03-16T00:46:33.785Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ulam and tricy gym",
+    "amount": "174",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1773644405733",
+    "createdAt": "2026-03-16T07:00:05.733Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Fish ",
+    "amount": "375",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091767683",
+    "createdAt": "2026-04-02T01:02:47.683Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Chicken ",
+    "amount": "360",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091788335",
+    "createdAt": "2026-04-02T01:03:08.335Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Avocado",
+    "amount": "120",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091798150",
+    "createdAt": "2026-04-02T01:03:18.150Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "237",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091840444",
+    "createdAt": "2026-04-02T01:04:00.444Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Coco mama",
+    "amount": "45",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091849330",
+    "createdAt": "2026-04-02T01:04:09.330Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Kakanin",
+    "amount": "50",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091866229",
+    "createdAt": "2026-04-02T01:04:26.229Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Egg",
+    "amount": "90",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091898556",
+    "createdAt": "2026-04-02T01:04:58.556Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Fish",
+    "amount": "266",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091911008",
+    "createdAt": "2026-04-02T01:05:11.008Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Chicken",
+    "amount": "170",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091918748",
+    "createdAt": "2026-04-02T01:05:18.748Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Oil",
+    "amount": "155",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091929004",
+    "createdAt": "2026-04-02T01:05:29.004Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Gulay",
+    "amount": "144",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775091981913",
+    "createdAt": "2026-04-02T01:06:21.913Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Shake",
+    "amount": "120",
+    "source": "Cash",
+    "user": "Mhai017",
+    "id": "1775092099665",
+    "createdAt": "2026-04-02T01:08:19.665Z",
+    "userDisplay": "Mhai"
+  },
+  {
+    "description": "Ice cream",
+    "amount": "135",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775105033599",
+    "createdAt": "2026-04-02T04:43:53.599Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Chicken & fish",
+    "amount": "485",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775566361794",
+    "createdAt": "2026-04-07T12:52:41.794Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Veggies",
+    "amount": "240",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775566379923",
+    "createdAt": "2026-04-07T12:52:59.923Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Sari-sari store",
+    "amount": "191",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775566458044",
+    "createdAt": "2026-04-07T12:54:18.044Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Fish",
+    "amount": "220",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775613150855",
+    "createdAt": "2026-04-08T01:52:30.855Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Veggies",
+    "amount": "150",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775613211594",
+    "createdAt": "2026-04-08T01:53:31.594Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Padyak",
+    "amount": "20",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775613220667",
+    "createdAt": "2026-04-08T01:53:40.667Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Snacks",
+    "amount": "105",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775613243306",
+    "createdAt": "2026-04-08T01:54:03.306Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Sari sari store",
+    "amount": "55",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775734849154",
+    "createdAt": "2026-04-09T11:40:49.154Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Snacks",
+    "amount": "70",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775734857693",
+    "createdAt": "2026-04-09T11:40:57.693Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Honey",
+    "amount": "350",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775734927201",
+    "createdAt": "2026-04-09T11:42:07.201Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Eggs",
+    "amount": "100",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775793951599",
+    "createdAt": "2026-04-10T04:05:51.599Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Bagoong",
+    "amount": "150",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775793959067",
+    "createdAt": "2026-04-10T04:05:59.067Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Chicken",
+    "amount": "385",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775985134181",
+    "createdAt": "2026-04-12T09:12:14.181Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Palengke",
+    "amount": "420",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775985221996",
+    "createdAt": "2026-04-12T09:13:41.996Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Snacks",
+    "amount": "228",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775985239432",
+    "createdAt": "2026-04-12T09:13:59.432Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Marble",
+    "amount": "700",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775985253118",
+    "createdAt": "2026-04-12T09:14:13.118Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Gas",
+    "amount": "1000",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1775985265500",
+    "createdAt": "2026-04-12T09:14:25.500Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Snacks",
+    "amount": "228",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776150991177",
+    "createdAt": "2026-04-14T07:16:31.177Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Chicken",
+    "amount": "140",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776151002110",
+    "createdAt": "2026-04-14T07:16:42.110Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Fish",
+    "amount": "340",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776151008951",
+    "createdAt": "2026-04-14T07:16:48.951Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Veggies",
+    "amount": "132",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776151037117",
+    "createdAt": "2026-04-14T07:17:17.117Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Kakanin",
+    "amount": "75",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776151062734",
+    "createdAt": "2026-04-14T07:17:42.734Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Tissue",
+    "amount": "50",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776151068511",
+    "createdAt": "2026-04-14T07:17:48.511Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Fish",
+    "amount": "200",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776151091970",
+    "createdAt": "2026-04-14T07:18:11.970Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Watermelon",
+    "amount": "180",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776236556759",
+    "createdAt": "2026-04-15T07:02:36.759Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Ice box",
+    "amount": "370",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776236567561",
+    "createdAt": "2026-04-15T07:02:47.561Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Baon Longbeach",
+    "amount": "500",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776857792038",
+    "createdAt": "2026-04-22T11:36:32.038Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Veggies",
+    "amount": "180",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776857798523",
+    "createdAt": "2026-04-22T11:36:38.523Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Veggies",
+    "amount": "131",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776857862563",
+    "createdAt": "2026-04-22T11:37:42.563Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Olive Oil",
+    "amount": "418",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776857887458",
+    "createdAt": "2026-04-22T11:38:07.458Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Groceries",
+    "amount": "3400",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776935486628",
+    "createdAt": "2026-04-23T09:11:26.628Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Salmon + veggies",
+    "amount": "1476",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776935505745",
+    "createdAt": "2026-04-23T09:11:45.745Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Grab",
+    "amount": "196",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776935593909",
+    "createdAt": "2026-04-23T09:13:13.909Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Chooks ",
+    "amount": "365",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776935634690",
+    "createdAt": "2026-04-23T09:13:54.690Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Ulam",
+    "amount": "100",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1776935640283",
+    "createdAt": "2026-04-23T09:14:00.283Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Payment to me from last month for groceries",
+    "amount": "1346",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803111162",
+    "createdAt": "2026-05-03T10:11:51.162Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Landmark groceries",
+    "amount": "3713",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803145147",
+    "createdAt": "2026-05-03T10:12:25.147Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Ice cream",
+    "amount": "220",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803166435",
+    "createdAt": "2026-05-03T10:12:46.435Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Takoyaki",
+    "amount": "185",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803177901",
+    "createdAt": "2026-05-03T10:12:57.901Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Grab",
+    "amount": "165",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803184558",
+    "createdAt": "2026-05-03T10:13:04.558Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Puregold",
+    "amount": "788",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803195317",
+    "createdAt": "2026-05-03T10:13:15.317Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Gulay",
+    "amount": "165",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803206704",
+    "createdAt": "2026-05-03T10:13:26.704Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Gulay and fish",
+    "amount": "260",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803219658",
+    "createdAt": "2026-05-03T10:13:39.658Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Banana",
+    "amount": "42",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803226583",
+    "createdAt": "2026-05-03T10:13:46.583Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Tricy RT gym (May 1)",
+    "amount": "54",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803303844",
+    "createdAt": "2026-05-03T10:15:03.844Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Tricy RT gym (May 3)",
+    "amount": "54",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803331968",
+    "createdAt": "2026-05-03T10:15:31.968Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Pancit canton & coke",
+    "amount": "80",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803365174",
+    "createdAt": "2026-05-03T10:16:05.174Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Granola bars",
+    "amount": "90",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1777803374179",
+    "createdAt": "2026-05-03T10:16:14.179Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Savemore",
+    "amount": "1284",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780048783538",
+    "createdAt": "2026-05-29T09:59:43.538Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Savemore",
+    "amount": "1284",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374598996",
+    "createdAt": "2026-06-02T04:29:58.996Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Savemore",
+    "amount": "4054",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374616059",
+    "createdAt": "2026-06-02T04:30:16.059Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Grab rt",
+    "amount": "300",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374632150",
+    "createdAt": "2026-06-02T04:30:32.150Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Dinner (Binalot)",
+    "amount": "438",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374649747",
+    "createdAt": "2026-06-02T04:30:49.747Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Lemon, mangga, sinigang mix",
+    "amount": "112",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374669714",
+    "createdAt": "2026-06-02T04:31:09.714Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "green beans ",
+    "amount": "35",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374696278",
+    "createdAt": "2026-06-02T04:31:36.278Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "tasty boy & garlic",
+    "amount": "40",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374705956",
+    "createdAt": "2026-06-02T04:31:45.956Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Tricy rt gym",
+    "amount": "54",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374726949",
+    "createdAt": "2026-06-02T04:32:06.949Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Lunch",
+    "amount": "170",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780374735081",
+    "createdAt": "2026-06-02T04:32:15.081Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Banana",
+    "amount": "115",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780388973678",
+    "createdAt": "2026-06-02T08:29:33.678Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Bread",
+    "amount": "86",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780496932408",
+    "createdAt": "2026-06-03T14:28:52.408Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Hopia",
+    "amount": "136",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780496939514",
+    "createdAt": "2026-06-03T14:28:59.514Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Rt tricy gym",
+    "amount": "54",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780574243036",
+    "createdAt": "2026-06-04T11:57:23.036Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Lunch ulam",
+    "amount": "170",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780574252410",
+    "createdAt": "2026-06-04T11:57:32.410Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Print ",
+    "amount": "20",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780574261546",
+    "createdAt": "2026-06-04T11:57:41.546Z",
+    "userDisplay": "Franz"
+  },
+  {
+    "description": "Rt tricy Agro",
+    "amount": "150",
+    "source": "Cash",
+    "user": "francis",
+    "id": "1780574273142",
+    "createdAt": "2026-06-04T11:57:53.142Z",
+    "userDisplay": "Franz"
+  }
+]
